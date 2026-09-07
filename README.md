@@ -24,14 +24,14 @@ python3 lab/check_users.py                     # exit 2
 
 | PR | Ветка | Что появляется | Когда идти дальше |
 |----|--------|----------------|-------------------|
-| [#1](../../pull/1) | `pr1-install` | MCP/CLI живой, фикстура на месте | `doctor` зелёный, 6 tools или CLI отвечает |
-| [#2](../../pull/2) | `pr2-chat` | Зафиксирован дрейф голого чата | Два ответа на один промпт — разный текст **или** честно: Cursor Agent с Read не врёт |
-| [#3](../../pull/3) | `pr3-search` | jq-маршрут по ключам | 0 токенов в платную; это схема, не список адресов |
-| [#4](../../pull/4) | `pr4-script` | `lab/check_users.py` | JSON + exit 1 / 0 / 2 |
-| [#5](../../pull/5) | `pr5-docs` | два RAG-чанка | «как у нас принято» находит чанк; синоним — мимо |
-| [#6](../../pull/6) | `pr6-local` | локальная Ollama 7b | classify на ноуте, без 30b |
-| [#7](../../pull/7) | `pr7-cloud` | [ollama.qa.guru](https://ollama.qa.guru) | 401 без учётки — **стоп**, не подменять localhost |
-| [#8](../../pull/8) | `pr8-orchestrator` | платная модель = прораб | `route` зовёт скрипт, модель файл глазами не перечитывает |
+| [#1](https://github.com/qa-guru/greedy-token-workshop/pull/1) | `pr1-install` | MCP/CLI живой, фикстура на месте | `doctor` зелёный, 6 tools или CLI отвечает |
+| [#2](https://github.com/qa-guru/greedy-token-workshop/pull/2) | `pr2-chat` | Зафиксирован дрейф голого чата | Два ответа на один промпт — разный текст **или** честно: Cursor Agent с Read не врёт |
+| [#3](https://github.com/qa-guru/greedy-token-workshop/pull/3) | `pr3-search` | jq-маршрут по ключам | 0 токенов в платную; это схема, не список адресов |
+| [#4](https://github.com/qa-guru/greedy-token-workshop/pull/4) | `pr4-script` | `lab/check_users.py` | JSON + exit 1 / 0 / 2 |
+| [#5](https://github.com/qa-guru/greedy-token-workshop/pull/5) | `pr5-docs` | два RAG-чанка | «как у нас принято» находит чанк; синоним — мимо |
+| [#6](https://github.com/qa-guru/greedy-token-workshop/pull/6) | `pr6-local` | локальная Ollama 7b | classify на ноуте, без 30b |
+| [#7](https://github.com/qa-guru/greedy-token-workshop/pull/7) | `pr7-cloud` | [ollama.qa.guru](https://ollama.qa.guru) | 401 без учётки — **стоп**, не подменять localhost |
+| [#8](https://github.com/qa-guru/greedy-token-workshop/pull/8) | `pr8-orchestrator` | платная модель = прораб | `route` зовёт скрипт, модель файл глазами не перечитывает |
 
 Шаги 7 и 8 на паре **отрезаемые**. Дома обязательны 1, 4 и один свой скрипт из [ASSIGNMENT.md](ASSIGNMENT.md).
 
