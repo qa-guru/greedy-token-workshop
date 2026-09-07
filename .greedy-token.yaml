@@ -1,0 +1,14 @@
+footer:
+  style: compact
+routes:
+- id: tool-jq-users-keys
+  target: tool
+  tool: jq
+  read_only: true
+  patterns:
+  - jq
+  - json field
+  - parse json
+  json_path: lab/users.json
+  jq_filter: map(keys)
+  note: Schema keys via jq — 0 LLM, no address list
