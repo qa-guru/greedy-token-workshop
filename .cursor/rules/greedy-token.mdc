@@ -1,0 +1,13 @@
+---
+description: Поиск через greedy-token MCP. Повторную проверку — в python-скрипт.
+alwaysApply: true
+---
+# greedy-token
+
+Поиск в коде — один вызов `greedy_token_search`. Не серия Grep/Read.
+
+Не звать `route` / `usage` в том же ходе, что search.
+
+Повторную проверку («есть ли поле», «не пропал path») — python-скрипт, не чат.
+
+Если MCP недоступен — CLI: `greedy-token doctor`, не встроенный Grep «на всякий случай».
