@@ -1,0 +1,10 @@
+openapi: 3.0.3
+info:
+  title: Mini notes
+  version: "1.0.1"
+paths:
+  /api/health:
+    get: {}
+  /api/note:
+    get: {}
+    post: {}
