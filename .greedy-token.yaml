@@ -12,3 +12,15 @@ routes:
   json_path: lab/users.json
   jq_filter: map(keys)
   note: Schema keys via jq — 0 LLM, no address list
+- id: python-check-users-keys
+  target: python
+  read_only: true
+  patterns:
+  - python check users keys
+  - check users keys
+  - у каждого объекта есть id и email
+  - lab/users.json у каждого объекта
+  - каждого объекта есть id
+  - в lab/users.json у каждого объекта есть id и email
+  command: python3 lab/check_users.py lab/users.json
+  note: шаг 4 — lab/check_users.py is SSOT
