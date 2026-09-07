@@ -14,6 +14,24 @@ llm:
     - classify
     - compress
     - generate
+  - id: cloud
+    enabled: true
+    provider: ollama
+    url: https://ollama.qa.guru
+    model: qwen2.5-coder:7b
+    locality: remote
+    billing: free
+    profiles:
+    - cloud
+  - id: heavy
+    enabled: true
+    provider: ollama
+    url: https://ollama.qa.guru
+    model: qwen3-coder:30b
+    locality: remote
+    billing: free
+    profiles:
+    - heavy
   cheap:
     default_id: local-fast
     selection: auto
