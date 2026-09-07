@@ -1,0 +1,7 @@
+{
+  "name": "login wrong password",
+  "fullName": "LoginTests.wrongPassword",
+  "labels": [
+    {"name": "tag", "value": "negative"}
+  ]
+}

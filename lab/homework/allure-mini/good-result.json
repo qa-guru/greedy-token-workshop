@@ -1,0 +1,8 @@
+{
+  "name": "login valid credentials",
+  "fullName": "LoginTests.valid",
+  "labels": [
+    {"name": "severity", "value": "critical"},
+    {"name": "tag", "value": "smoke"}
+  ]
+}
