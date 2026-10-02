@@ -59,3 +59,14 @@ routes:
   - в lab/users.json у каждого объекта есть id и email
   command: python3 lab/check_users.py lab/users.json
   note: шаг 4 — lab/check_users.py is SSOT
+- id: python-check-events-keys
+  target: python
+  read_only: true
+  patterns:
+  - python check events keys
+  - check events keys
+  - у каждого события есть id ts event
+  - lab/events.jsonl у каждого события
+  - в lab/events.jsonl у каждого события
+  command: python3 lab/check_events.py lab/events.jsonl
+  note: bench — валидация 1.2MB JSONL без чтения в контекст
