@@ -44,6 +44,36 @@ usage.jsonl различимы по времени.
 `pytest` полный: 2309 passed, 1 skipped; +5 новых тестов. E2E на собранном
 wheel: все строки таблицы воспроизведены без `GREEDY_TOKEN_ROOT`.
 
+## Bench matrix (v0.18.4, 2026-10-02, лог `/tmp/gt-bench-v0184.jsonl`)
+
+Медиана 3 прогонов, wall ms (вкл. ~200ms старт CLI). «Payload» — байты
+stdout/4 (или est_tokens для rag/llm) — то, что реально попадает в
+контекст агента при CLI/advisory-пути.
+
+| Запрос | Тир | Wall ms | Payload tok | Примечание |
+|---|---|---|---|---|
+| find email in lab/users.json | tool/rg | 266 | ~202 | route-карта > сам файл |
+| найди email в lab/users.json | tool/rg | 259 | ~203 | то же |
+| jq map keys of lab/users.json | tool/jq | 261 | ~158 | |
+| в lab/users.json у каждого объекта есть id и email | python | 269 | ~236 | |
+| проверь, что у каждого объекта есть id и email | python | 266 | ~192 | |
+| у всех юзеров проверь наличие ключей | cursor-fallback | 237 | ~311 | промах: base + карта |
+| как у нас принято проверять ключи id email | rag | 208 | 166 | единственный плюс на малых |
+| убедись что у каждого человека есть почта | rag empty | 209 | ~22 | пусто, но дёшево |
+| отрефактори архитектуру конфигуратора | cursor-fallback | 248 | ~793 | промах |
+| pipeline search-rag email path=lab --execute | rg→rag | 225 | ~706 | оба шага + чанки |
+| llm classify (warm) | ollama | 1,315 | 133 eval | $0 local |
+| llm classify (cold) | ollama | 4,195 | 114 eval | keep_alive=0 |
+
+Большие (monorepo, `run --execute`): events.jsonl 358ms/48tok ·
+usage-stats 519ms/194tok · rg find ensure.py 709ms/755tok (30-line cap!)
+· git-recent 479ms/1837tok · rag 112 chunks 256ms/5812tok.
+
+Вывод после F1–F5: на малых входах advisory/CLI-путь токен-отрицателен
+(обвязка > контент) — экономия в intercept-режиме и на больших объёмах.
+События usage.jsonl теперь несут `hook_mode` (workshop=advisory,
+monorepo=intercept в этом прогоне).
+
 ## Bench matrix (2026-10-01, изолированный лог `/tmp/gt-bench.jsonl`)
 
 Baseline: measured «без greedy» ≈ 17,043 tok overhead + ~25.7s (из doctor/telemetry). Wall ms включает старт CLI (~200ms); exec ms — из телеметрии.
